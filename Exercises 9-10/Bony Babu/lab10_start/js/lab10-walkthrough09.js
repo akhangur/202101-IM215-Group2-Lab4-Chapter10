@@ -8,13 +8,6 @@ $("#consume").click(function() {
  var li = $('<li/>').html(value.name);
  li.appendTo("div#results ul");
  });
- }
+ });
  });
 });
-if (status == "success") {
- var list = "";
- for (var i=0; i < data.length; i++) {
- list += data[i].name + "<br>";
- }
- $("#results").html(list);
-}
