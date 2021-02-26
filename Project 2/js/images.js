@@ -46,5 +46,10 @@ $(function () {
            
         //Step 7: Append #preview <div> to the body (Bony)
         $('body').append(preview);
+        })
+    //Step 8: remove gray class and #preview <div> (Ammu)
+        .on('mouseleave', function(e) {
+            $(this).removeClass("gray");
+            $("#preview").remove(); 
         });
 });
