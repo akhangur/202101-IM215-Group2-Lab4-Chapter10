@@ -10,5 +10,8 @@ $(function () {
 
     var newsrc = src.replace("small","medium");
     $('figure img').attr("src",newsrc);
+    //Step 4: Change the figcaption to display title and artist information. (Amandeep)
+
+    $('figcaption').html("<em>"+alt+"</em><br>"+title);
     });
 });
