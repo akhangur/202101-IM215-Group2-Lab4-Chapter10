@@ -12,52 +12,5 @@ $(function () {
         li.append(img);                                              // Add <img> tag to <li> tag
         $('.gallery').append(li);                                       // Add <li> to <ul> tag
     }
-    
-    // Step 3: Attach handlers  to square images in the gallery
-    $('.gallery img')
-        .on('mouseenter', function(e) {
-        //Step 4: add gray class to square image
-        $(this).addClass('gray');
-        //Step 5: 
-        var alt = $(this).attr('alt');
-        var src = $(this).attr('src');
-        var newsrc = src.replace("square","medium");
-        // Step 5:make dynamic element with larger preview image and caption
-        var preview = $('<div id="preview"></div>');
-        //Step 5: Create image tag that displays larger version of image
-        var image = $('<img src="' + newsrc + '">');
-        var cap=alt;
-        for(i=0;i<images.length;i++)
-        {
-            if(alt==images[i].title)
-            {
-                cap=cap+"<br><I>"+images[i].city+", "+images[i].country+", ["+images[i].taken+"]</I>";
-                break;
-            }
-        }
-        var caption = $('<p>' + cap + '</p>');
-        
-        preview.append(image);
-        preview.append(caption);
-        //Step 6: calculate new position
-        $("#preview").css("display","block");
-        $("#preview")
-            .css("top", (e.pageY - 10) + "px")
-            .css("left", (e.pageX + 30) + "px");
-           
-        //Step 7: Append #preview <div> to the body
-        $('body').append(preview);
-        })
-        //Step 8: remove gray class and #preview <div>
-        .on('mouseleave', function(e) {
-            $(this).removeClass("gray");
-            $("#preview").remove(); 
-        })
-        //Step 9: set the left and top css property for #preview <div>
-       .on('mousemove', function(e) {
-            $("#preview").css("display","block");
-            $("#preview")
-                .css("top", (e.pageY - 10) + "px")
-                .css("left", (e.pageX + 30) + "px");
-        });
+  
 });
