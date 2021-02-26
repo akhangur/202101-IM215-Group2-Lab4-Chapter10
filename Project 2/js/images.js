@@ -2,7 +2,7 @@ var jsonImages = '[{"id":22,"title":"View of Cologne","description":"View of Col
 
 var images = JSON.parse(jsonImages);
 $(function () {
-    // Step 2:Loop throgh images array to add <img>
+    // Step 2:Loop throgh images array to add <img>(Amandeep)
     for(i=0;i<images.length;i++)
     {
         var li=$('<li/>');                                          //create <li> tag
@@ -12,7 +12,8 @@ $(function () {
         li.append(img);                                              // Add <img> tag to <li> tag
         $('.gallery').append(li);                                       // Add <li> to <ul> tag
     }
-  // Step 3: Attach handlers  to square images in the gallery (Bony)
+    
+    // Step 3: Attach handlers  to square images in the gallery (Bony)
     $('.gallery img')
         .on('mouseenter', function(e) {
         //Step 4: add gray class to square image (Bony)
@@ -47,9 +48,16 @@ $(function () {
         //Step 7: Append #preview <div> to the body (Bony)
         $('body').append(preview);
         })
-    //Step 8: remove gray class and #preview <div> (Ammu)
+        //Step 8: remove gray class and #preview <div> (Ammu)
         .on('mouseleave', function(e) {
             $(this).removeClass("gray");
             $("#preview").remove(); 
+        })
+        //Step 9: set the left and top css property for #preview <div> (Ammu)
+       .on('mousemove', function(e) {
+            $("#preview").css("display","block");
+            $("#preview")
+                .css("top", (e.pageY - 10) + "px")
+                .css("left", (e.pageX + 30) + "px");
         });
 });
